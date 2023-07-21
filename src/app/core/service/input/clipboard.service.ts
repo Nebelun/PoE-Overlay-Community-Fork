@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
-import { Remote } from 'electron'
+import { ElectronProvider, ElectronRemote } from '@app/provider'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClipboardService {
-  private readonly electron: Remote
+  private readonly electron: ElectronRemote
 
   constructor(electronProvider: ElectronProvider) {
     this.electron = electronProvider.provideRemote()

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, ElectronRemote } from '@app/provider'
 import { environment } from '@env/environment'
-import { BrowserWindow, Remote } from 'electron'
+import { BrowserWindow } from 'electron'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
 
@@ -9,7 +9,7 @@ import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.servic
   providedIn: 'root',
 })
 export class BrowserService {
-  private readonly electron: Remote
+  private readonly electron: ElectronRemote
 
   constructor(private readonly dialogRef: DialogRefService, electronProvider: ElectronProvider) {
     this.electron = electronProvider.provideRemote()

@@ -1,4 +1,5 @@
-import { BrowserWindow, Remote } from 'electron'
+import { ElectronRemote } from '@app/provider'
+import { BrowserWindow } from 'electron'
 
 // This class makes it possible to make certain elements clickable and keeping others click-through.
 //
@@ -16,7 +17,7 @@ export class TransparencyMouseFix {
   private readonly SESSION_STORAGE_KEY = 'tmf-reloaded'
   private readonly SESSION_STORAGE_VALUE = 'true'
 
-  private readonly electron: Remote
+  private readonly electron: ElectronRemote
   private readonly electronWindow: BrowserWindow
   private readonly htmlWindow: Window
 
@@ -27,7 +28,7 @@ export class TransparencyMouseFix {
   private fixPointerEvents = false
   private manualPollingInstanceCount = 0
 
-  constructor(electronRemote: Remote, private readonly log = false) {
+  constructor(electronRemote: ElectronRemote, private readonly log = false) {
     this.electron = electronRemote
     this.electronWindow = this.electron.getCurrentWindow()
     this.htmlWindow = window

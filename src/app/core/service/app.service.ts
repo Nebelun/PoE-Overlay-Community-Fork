@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, ElectronRemote } from '@app/provider'
 import { AppUpdateState, VisibleFlag } from '@app/type/app.type'
-import { IpcRenderer, Remote } from 'electron'
+import { IpcRenderer } from 'electron'
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { DialogRefService, DialogType } from './dialog/dialog-ref.service'
@@ -10,7 +10,7 @@ import { DialogRefService, DialogType } from './dialog/dialog-ref.service'
   providedIn: 'root',
 })
 export class AppService {
-  private readonly electron: Remote
+  private readonly electron: ElectronRemote
   private readonly ipcRenderer: IpcRenderer
 
   private readonly activeChange$ = new BehaviorSubject<boolean>(false)

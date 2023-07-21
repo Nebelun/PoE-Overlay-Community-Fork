@@ -118,14 +118,12 @@
           {{ displayWithTime(settings.evaluateQueryDebounceTime) }}
         </label>
         <div class="slider">
-          <mat-slider
-            min="5"
-            [max]="debounceTimeMax"
-            step="5"
-            tickInterval="2"
-            [displayWith]="displayWithTime"
-            [(value)]="settings.evaluateQueryDebounceTime"
-          >
+          <mat-slider min="5"
+                      [max]="debounceTimeMax"
+                      step="5"
+                      tickInterval="2"
+                      [displayWith]="displayWithTime">
+            <input matSliderThumb [(value)]="settings.evaluateQueryDebounceTime">
           </mat-slider>
           <span>&nbsp;∞</span>
         </div>
@@ -138,14 +136,12 @@
           {{ displayWithCount(settings.evaluateQueryFetchCount) }}
         </label>
         <div class="slider">
-          <mat-slider
-            min="10"
-            [max]="fetchCountMax"
-            step="10"
-            tickInterval="1"
-            [displayWith]="displayWithCount"
-            [(value)]="settings.evaluateQueryFetchCount"
-          >
+          <mat-slider min="10"
+                      [max]="fetchCountMax"
+                      step="10"
+                      tickInterval="1"
+                      [displayWith]="displayWithCount">
+            <input matSliderThumb [(value)]="settings.evaluateQueryFetchCount">
           </mat-slider>
           <span>100</span>
         </div>
@@ -223,15 +219,15 @@
                         step="1"
                         tickInterval="10"
                         invert
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMinRange">
+                        [displayWith]="displayWithStat">
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMinRange">
             </mat-slider>
             <mat-slider min="0"
                         max="50"
                         step="1"
                         tickInterval="10"
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMaxRange">
+                        [displayWith]="displayWithStat">
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -332,15 +328,15 @@
                         step="1"
                         tickInterval="10"
                         invert
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMinRange">
+                        [displayWith]="displayWithStat">
+              <input matSliderThumb [(value)]="settings.evaluateModifierMinRange">
             </mat-slider>
             <mat-slider min="0"
                         max="50"
                         step="1"
                         tickInterval="10"
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMaxRange">
+                        [displayWith]="displayWithStat">
+              <input matSliderThumb [(value)]="settings.evaluateModifierMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>

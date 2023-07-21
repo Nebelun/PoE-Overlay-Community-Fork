@@ -34,8 +34,6 @@ if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
   app.exit()
 }
 
-app.allowRendererProcessReuse = false
-
 app.commandLine.appendSwitch('high-dpi-support', 'true')
 app.commandLine.appendSwitch('force-device-scale-factor', '1')
 
@@ -111,6 +109,8 @@ function send(channel: string, ...additionalArgs: any[]): void {
     console.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`)
   }
 }
+
+require('@electron/remote/main').initialize()
 
 launch.register(ipcMain)
 

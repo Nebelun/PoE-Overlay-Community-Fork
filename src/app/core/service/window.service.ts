@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, ElectronRemote } from '@app/provider'
 import { Rectangle } from '@app/type'
-import { BrowserWindow, Point, IpcRenderer, Remote } from 'electron'
+import { BrowserWindow, Point, IpcRenderer } from 'electron'
 import { Observable, Subject, BehaviorSubject } from 'rxjs'
 import { TransparencyMouseFix } from '../../transparency-mouse-fix'
 
@@ -14,7 +14,7 @@ export class WindowService {
   // Don't remove this. We need to keep the instance, but don't actually use it (because all magic happens inside)
   private transparencyMouseFix: TransparencyMouseFix
 
-  private readonly electronRemote: Remote
+  private readonly electronRemote: ElectronRemote
   private readonly ipcRenderer: IpcRenderer
   private readonly window: BrowserWindow
 

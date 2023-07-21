@@ -1,17 +1,5 @@
 import { Injectable } from '@angular/core'
-import {
-  English,
-  French,
-  German,
-  Korean,
-  Portuguese,
-  Russian,
-  SimplifiedChinese,
-  Spanish,
-  Thai,
-  TraditionalChinese,
-  Japanese,
-} from '../../../../../assets/poe/words.json'
+import { default as data } from '../../../../../assets/poe/words.json'
 import { Language, WordMap } from '../type'
 
 @Injectable({
@@ -21,27 +9,27 @@ export class WordProvider {
   public provide(language: Language): WordMap {
     switch (language) {
       case Language.English:
-        return English
+        return data.English
       case Language.Portuguese:
-        return Portuguese
+        return data.Portuguese
       case Language.Russian:
-        return Russian
+        return data.Russian
       case Language.Thai:
-        return Thai
+        return data.Thai
       case Language.German:
-        return German
+        return data.German
       case Language.French:
-        return French
+        return data.French
       case Language.Spanish:
-        return Spanish
+        return data.Spanish
       case Language.Korean:
-        return Korean
+        return data.Korean
       // case Language.SimplifiedChinese:
       //     return SimplifiedChinese;
       case Language.TraditionalChinese:
-        return TraditionalChinese
+        return data.TraditionalChinese
       case Language.Japanese:
-        return Japanese
+        return data.Japanese
       default:
         throw new Error(`Could not map words to language: '${Language[language]}'.`)
     }

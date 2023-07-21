@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, ElectronRemote } from '@app/provider'
 import { VisibleFlag } from '@app/type/app.type'
-import { IpcRenderer, Remote } from 'electron'
+import { IpcRenderer } from 'electron'
 import { Observable, Subject } from 'rxjs'
 
 export interface Shortcut {
@@ -23,7 +23,7 @@ interface ShortcutDict {
 })
 export class ShortcutService {
   private readonly ipcRenderer: IpcRenderer
-  private readonly remote: Remote
+  private readonly remote: ElectronRemote
   private readonly shortcuts: ShortcutDict = {}
 
   private lastFlag?: VisibleFlag

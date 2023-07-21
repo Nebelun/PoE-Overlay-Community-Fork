@@ -1,4 +1,5 @@
 import { IpcMain } from 'electron'
+import { uIOhook, UiohookKey } from 'uiohook-napi'
 
 interface MouseWheelEvent {
   rotation: number
@@ -19,9 +20,8 @@ class Hook {
         resolve(false)
       } else {
         try {
-          const iohook = (await import('iohook')).default
-          iohook.start()
-          iohook.on('mousewheel', callback)
+          uIOhook.on('wheel', callback)
+          uIOhook.start()
 
           this.active = true
           this.callback = callback
@@ -41,12 +41,11 @@ class Hook {
         resolve(false)
       } else {
         try {
-          const iohook = (await import('iohook')).default
           if (this.callback) {
-            iohook.off('mousewheel', this.callback)
+            uIOhook.off('wheel', this.callback)
           }
 
-          iohook.stop()
+          uIOhook.stop()
 
           this.callback = undefined
           this.active = false

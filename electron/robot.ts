@@ -1,8 +1,10 @@
 import { IpcMain } from 'electron'
-import * as robot from 'robotjs'
+//import * as robot from 'robotjs'
+
+// TODO: RECONSTRUCTION
 
 export function register(ipcMain: IpcMain): void {
-  ipcMain.on('click-at', (event, button, position) => {
+/*  ipcMain.on('click-at', (event, button, position) => {
     if (position) {
       robot.updateScreenMetrics()
       robot.moveMouse(position.x, position.y)
@@ -34,5 +36,5 @@ export function register(ipcMain: IpcMain): void {
   ipcMain.on('set-keyboard-delay', (event, delay) => {
     robot.setKeyboardDelay(delay)
     event.returnValue = true
-  })
+  })*/
 }
