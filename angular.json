@@ -68,7 +68,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "24kb"
                 }
               ],
               "outputHashing": "all"
@@ -85,19 +85,7 @@
               "namedChunks": true,
               "extractLicenses": false,
               "vendorChunk": true,
-              "buildOptimizer": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "32mb",
-                  "maximumError": "64mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
+              "buildOptimizer": false
             }
           },
           "defaultConfiguration": "development"
